@@ -4,17 +4,10 @@ from django.db import models
 class category(models.Model):
     cid=models.AutoField(primary_key=True)
     cname=models.CharField(max_length=100)
-    
+    #subcategory=models.CharField(max_length=100)
     def __str__(self):
         return self.cname
-class logo(models.Model):
-    logoname = models.CharField(max_length=100)
-    logoimage=models.ImageField(upload_to='upload/',default='mypic')
-    category= models.ForeignKey(category, on_delete=models.CASCADE,default='')
 
-    def __str__(self):
-        return self.logoname
-    
 class product(models.Model):
     pid= models.AutoField(primary_key=True)
     logoname= models.CharField(max_length=200)
@@ -24,3 +17,24 @@ class product(models.Model):
 
     def __str__(self):
         return self.companyname
+
+class logoinfo(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=255,default="")
+    img=models.ImageField(upload_to='upload/',default="dummy.jpg")
+    category= models.ForeignKey(category, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.title 
+
+class client(models.Model):
+    name=models.CharField(max_length=255,default="")
+    email=models.CharField(max_length=255,default="")
+    contact=models.IntegerField()
+    message=models.TextField()
+    logoid=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.email
+

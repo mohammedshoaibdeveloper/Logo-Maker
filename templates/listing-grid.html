@@ -86,26 +86,18 @@
             <div class="container">
                 <div class="content">
                 
-                    <form class="filter" method="post" action="http://preview.byaviators.com/template/superlist/listing-grid.html?">
+                    <form class="filter" method="post" action="/search">
+                    {% csrf_token %}
     <div class="row">
         <div class="col-sm-12 col-md-4">
             <div class="form-group">
-                <input type="text" placeholder="Keyword" class="form-control">
+                <input type="text" placeholder="Keyword" class="form-control" name="search">
             </div><!-- /.form-group -->
         </div><!-- /.col-* -->
 
        
 
-        <div class="col-sm-12 col-md-4">
-            <div class="form-group">
-                <select class="form-control" title="Select Category">
-                    <option value="">Automotive</option>
-                    <option value="">Jobs</option>
-                    <option value="">Nightlife</option>
-                    <option value="">Services</option>
-                </select>
-            </div><!-- /.form-group -->
-        </div><!-- /.col-* -->
+      
     </div><!-- /.row -->
 
     <hr>
@@ -119,31 +111,186 @@
         </div><!-- /.col-* -->
 
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary">Redefine Search Result</button>
+            <button type="submit" class="btn btn-primary">Search</button>
         </div><!-- /.col-* -->
     </div><!-- /.row -->
 </form>
-{% for i in logoall %}
-{% for cat in cat %}
+
 <div class="cards-simple-wrapper">
     <div class="row">
+    {% for i in data  %}
+    
+
         
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card-simple" data-background-image="/upload/{{i.logoimage}}" >
+                <div class="card-simple" data-background-image="/upload/{{i.img}}">
                     <div class="card-simple-background">
                         <div class="card-simple-content">
                             <div class="card-simple-actions">
                                 <p>Add to favourite</p>
-                                <a href="/listingdetails" class="fa fa-star-o"></a>
+                                <a href="/detail/{{i.sno}}" class="fa fa-star-o"></a>
                             </div><!-- /.card-simple-actions -->
                         </div><!-- /.card-simple-content -->
-                            <div class="card-simple-price">{{ i.logoname}}</div>
+                            <div class="card-simple-price">{{i.title}}</div>
                     </div><!-- /.card-simple-background -->
                 </div><!-- /.card-simple -->
             </div><!-- /.col-* -->
-            {% endfor %}
-        {% endfor %}
-          
+                {% endfor %}
+{% comment %}         
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-2.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-3.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+               <div class="card-simple" data-background-image="{% static 'img/tmp/product-4.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-5.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+               <div class="card-simple" data-background-image="{% static 'img/tmp/product-6.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+               <div class="card-simple" data-background-image="{% static 'img/tmp/product-7.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-8.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-9.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-10.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-11.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* -->
+        
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card-simple" data-background-image="{% static 'img/tmp/product-12.jpg' %}">
+                    <div class="card-simple-background">
+                        <div class="card-simple-content">
+                            <div class="card-simple-actions">
+                                <p>Add to favourite</p>
+                                <a href="listing-detail.html" class="fa fa-star-o"></a>
+                            </div><!-- /.card-simple-actions -->
+                        </div><!-- /.card-simple-content -->
+                            <div class="card-simple-price">Logo Name</div>
+                    </div><!-- /.card-simple-background -->
+                </div><!-- /.card-simple -->
+            </div><!-- /.col-* --> {% endcomment %}
+        
     </div><!-- /.row -->
 </div><!-- /.cards-simple-wrapper -->
 

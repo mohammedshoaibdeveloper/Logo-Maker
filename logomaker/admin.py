@@ -1,12 +1,8 @@
 from django.contrib import admin
-from .models import category,product,logo
+from .models import category,product,logoinfo,client
 
-class ProductAdmin(admin.ModelAdmin):
-    
-    list_display=('companyname','logoname','category','price')
 # Register your models here.
-
-
 admin.site.register(category)
-admin.site.register(product,ProductAdmin)
-admin.site.register(logo)
+admin.site.register(product)
+admin.site.register(logoinfo)
+admin.site.register(client)
