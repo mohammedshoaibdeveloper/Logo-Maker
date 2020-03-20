@@ -10474,7 +10474,7 @@ ol li {
 .main {
   display: table-row;
   height: 100%; 
-  background: #fda700;
+  background: white;
 }
 
 .main-inner {
